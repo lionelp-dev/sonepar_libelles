@@ -1,0 +1,8 @@
+﻿utilisateur_m3;role_m3;fonction_m3;societe;division;type_option;code_option;valeur_droit
+U001;COMPTA;GLS200;100;AAA;Option de base;05;1
+U001;COMPTA;GLS200;100;AAA;Touche de fonction;F12;2
+U002;ACHATS;PPS200;100;AAA;Option de base;02;2
+U003;STOCK;MMS200;100;BBB;Option de base;05;1
+U003;STOCK;PPS200;100;BBB;Option de base;02;0
+U004;ACHATS;PPS200;100;AAA;Option de base;05;1
+U004;CONSULT;MMS200;100;AAA;Option de base;05;1
