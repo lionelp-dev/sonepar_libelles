@@ -2,9 +2,13 @@
 
 Projet pédagogique réalisé de manière autonome à la suite d’un échange dans le cadre de ma candidature à une alternance chez Sonepar. Il s’inspire des enjeux de gestion des habilitations autour de l’ERP Infor M3.
 
-L’application Django a été développée dans le but de mieux comprendre le travail de l’équipe sur la gestion des habilitations M3, notamment le traitement des droits des fonctions, stockés en base de données sous forme de valeurs `0`, `1` ou `2`, leur association aux libellés correspondants et leur export au format CSV. Faute d’accès à un environnement Infor M3, les données sources sont simulées à l’aide de fichiers CSV placés dans le dossier `donnees/`.
+L’application Django a été développée dans le but de mieux comprendre le travail de l’équipe sur la gestion des habilitations M3, notamment le traitement des droits des fonctions, leur association aux libellés correspondants et leur export au format CSV. Faute d’accès à un environnement Infor M3, les données sources sont simulées à l’aide de fichiers CSV placés dans le dossier `donnees/`.
 
 > **Important — hypothèse de classification :** n’ayant pas trouvé d’informations précises sur la signification des valeurs `0`, `1` et `2` pour les droits de fonctions M3, cette classification repose sur une hypothèse retenue pour le projet. Elle ne constitue pas une nomenclature standard confirmée par la documentation Infor M3.
+
+## Aperçu de l’application
+
+![Aperçu de l’application de gestion des habilitations](public/app.png)
 
 ## Aperçu de l’export CSV
 
@@ -14,7 +18,7 @@ L’application Django a été développée dans le but de mieux comprendre le t
 
 Le cas d’usage s’inspire d’une équipe chargée de la gestion des habilitations et des audits M3 : autoriser ou non certains profils à accéder aux fonctions de l’ERP, puis exploiter ces données dans des rapports ou des exports.
 
-Ce dépôt se concentre sur le volet **Django / Python** de cette exploration. Il ne constitue pas une application interne de Sonepar et ne se connecte à aucun environnement M3.
+Ce dépôt réunit une API **Django / Django REST Framework** et un frontend **Angular standalone**. Il ne constitue pas une application interne de Sonepar et ne se connecte à aucun environnement M3.
 
 ## Finalité métier
 
@@ -71,6 +75,7 @@ Les référentiels permettent ensuite d’enrichir ces informations avec les lib
 
 - Python 3.12 ou supérieur ;
 - `pip` ;
+- Node.js et npm (pour le frontend Angular) ;
 - Git (pour cloner le dépôt).
 
 Le projet utilise SQLite en développement : aucune base de données externe n'est nécessaire. La base est créée dans `database/db.sqlite3` lors de l'application des migrations.
@@ -82,6 +87,7 @@ app/        Application Django et commandes de gestion
 config/     Configuration Django
 database/   Base SQLite locale
 donnees/    Fichiers CSV simulant les données M3
+frontend/   Application Angular standalone
 manage.py   Point d'entrée Django
 ```
 
@@ -94,6 +100,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
+
+cd frontend
+npm install
+cd ..
 ```
 
 Sous Windows (PowerShell), l'activation de l'environnement virtuel s'effectue avec :
@@ -102,22 +112,42 @@ Sous Windows (PowerShell), l'activation de l'environnement virtuel s'effectue av
 .\.venv\Scripts\Activate.ps1
 ```
 
-## Initialiser les données
+## Initialisation au premier lancement
 
-Appliquer les migrations, charger les référentiels CSV, puis générer un audit :
+Activez l’environnement virtuel, appliquez les migrations, puis chargez les données CSV simulées :
 
 ```bash
+source .venv/bin/activate
 python manage.py migrate
 python manage.py seed_all
-python manage.py audit_habilitations
-python manage.py export_audit_habilitations
 ```
 
-La commande `seed_all` charge les référentiels de fonctions, niveaux d'accès, options, utilisateurs, rôles et associations M3. Chaque seeder ne charge des données que si sa table est vide.
+La commande `seed_all` charge les référentiels de fonctions, niveaux d’accès, options, utilisateurs, rôles et associations M3. Chaque seeder n’ajoute des données que si sa table est vide.
 
-La commande `audit_habilitations` rapproche les utilisateurs, rôles, autorisations et référentiels. Elle crée un audit horodaté et conserve ses habilitations dans la base. Chaque lancement crée un nouvel historique.
+## Lancer l’application
 
-La commande `export_audit_habilitations` exporte le dernier audit des habilitations dans un fichier `exports/audit_habilitations_<id>_<datetime>.csv`, afin de le consulter ou de le transmettre.
+Après l’initialisation, démarrez les deux serveurs dans deux terminaux distincts.
+
+### API Python (Django)
+
+Dans le terminal où l’environnement virtuel est activé, à la racine du dépôt :
+
+```bash
+python manage.py runserver
+```
+
+Si vous ouvrez un nouveau terminal, réactivez d’abord l’environnement avec `source .venv/bin/activate`. L’API est disponible sur <http://127.0.0.1:8000> et son état peut être vérifié sur <http://127.0.0.1:8000/api/health/>.
+
+### Frontend Angular
+
+Dans un second terminal :
+
+```bash
+cd frontend
+npm start
+```
+
+Ouvrez ensuite <http://localhost:4200>. Le serveur Angular utilise `frontend/proxy.conf.json` pour transmettre automatiquement les requêtes `/api/` à Django sur le port `8000` : les deux serveurs doivent donc rester lancés pendant le développement.
 
 ## Conclusion
 

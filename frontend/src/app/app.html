@@ -1,0 +1,16 @@
+<div class="application-shell">
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Navigation principale">
+      <p class="sidebar-title">Données d’audit</p>
+      <nav>
+        @for (item of navigation; track item.path) {
+          <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+        }
+      </nav>
+    </aside>
+
+    <main>
+      <router-outlet />
+    </main>
+  </div>
+</div>
