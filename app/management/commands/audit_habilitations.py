@@ -18,7 +18,7 @@ from app.models import (
 class Command(BaseCommand):
     """Affiche l'audit des habilitations M3."""
 
-    help = "Affiche l'audit des habilitations M3 dans le terminal"
+    help = "Génère un audit des habilitations M3"
 
     def handle(self, *args, **options):
         audit = AuditHabilitations.objects.create()
@@ -43,12 +43,6 @@ class Command(BaseCommand):
         autorisations_par_role = defaultdict(list)
         for autorisation in SES400MI_LstAuthByRole.objects.order_by("role_id", "code_fonction"):
             autorisations_par_role[autorisation.role_id].append(autorisation)
-
-        self.stdout.write(f"AUDIT DES HABILITATIONS #{audit.pk} - {audit.created_at.isoformat()}")
-        self.stdout.write(
-            "Utilisateur | Rôle | Fonction | Société | Division | Statut | Options | Niveau d'accès"
-        )
-        self.stdout.write("-" * 120)
 
         nombre_habilitations = 0
         for affectation in MNS410MI_LstRolesByUser.objects.order_by("user_id", "role_id"):
@@ -76,7 +70,7 @@ class Command(BaseCommand):
                     f"Niveau inconnu ({autorisation.niveau_acces})",
                 )
 
-                habilitation = Habilitations.objects.create(
+                Habilitations.objects.create(
                     audit=audit,
                     user_id=affectation.user_id,
                     role_id=affectation.role_id,
@@ -93,18 +87,10 @@ class Command(BaseCommand):
                     libelle_niveau_acces=libelle_niveau,
                 )
 
-                self.stdout.write(
-                    f"{habilitation.user_id} - {habilitation.nom_complet} | "
-                    f"{habilitation.role_id} - {habilitation.nom_role} | "
-                    f"{habilitation.code_fonction} - {habilitation.libelle_fonction} | "
-                    f"{habilitation.societe} | {habilitation.division} | {habilitation.statut} | "
-                    f"{habilitation.libelles_options_autorisees or '-'} | "
-                    f"{habilitation.niveau_acces} - {habilitation.libelle_niveau_acces}"
-                )
                 nombre_habilitations += 1
 
         self.stdout.write(
             self.style.SUCCESS(
-                f"Audit #{audit.pk} : {nombre_habilitations} habilitation(s) générée(s) et affichée(s)."
+                f"Audit #{audit.pk} : {nombre_habilitations} habilitation(s) générée(s)."
             )
         )

@@ -11,3 +11,6 @@ database/*.sqlite3-*
 
 # Variables d'environnement locales
 .env
+
+# Exports générés
+exports/*.csv

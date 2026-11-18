@@ -1,0 +1,37 @@
+﻿user_id;nom_complet;role_id;nom_role;code_fonction;libelle_fonction;societe;division;statut;options_autorisees;libelles_options_autorisees;niveau_acces;libelle_niveau_acces
+AMOREL;Alice Morel;COMM01;Commercial;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+AMOREL;Alice Morel;COMM01;Commercial;OIS100;Commandes clients;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+AMOREL;Alice Morel;COMM01;Commercial;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+CBERGER;Clara Berger;AUDIT01;Auditeur;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+CBERGER;Clara Berger;AUDIT01;Auditeur;OIS100;Commandes clients;100;AAA;20;5;Consulter;1;Consultation uniquement
+CBERGER;Clara Berger;AUDIT01;Auditeur;PPS200;Commandes fournisseurs;100;AAA;20;5;Consulter;1;Consultation uniquement
+CBERGER;Clara Berger;COMM01;Commercial;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+CBERGER;Clara Berger;COMM01;Commercial;OIS100;Commandes clients;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+CBERGER;Clara Berger;COMM01;Commercial;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+HFERREIRA;Hugo Ferreira;ACHAT01;Acheteur;MMS001;Gestion des articles;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+HFERREIRA;Hugo Ferreira;ACHAT01;Acheteur;OIS100;Commandes clients;100;AAA;20;5;Consulter;1;Consultation uniquement
+HFERREIRA;Hugo Ferreira;ACHAT01;Acheteur;PPS200;Commandes fournisseurs;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+HFERREIRA;Hugo Ferreira;MAGASIN01;Magasinier;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+HFERREIRA;Hugo Ferreira;MAGASIN01;Magasinier;OIS100;Commandes clients;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+HFERREIRA;Hugo Ferreira;MAGASIN01;Magasinier;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+JBERNARD;Julie Bernard;MAGASIN01;Magasinier;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+JBERNARD;Julie Bernard;MAGASIN01;Magasinier;OIS100;Commandes clients;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+JBERNARD;Julie Bernard;MAGASIN01;Magasinier;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+KDUBOIS;Karim Dubois;COMM01;Commercial;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+KDUBOIS;Karim Dubois;COMM01;Commercial;OIS100;Commandes clients;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+KDUBOIS;Karim Dubois;COMM01;Commercial;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+LROBERT;Lucas Robert;MAGASIN01;Magasinier;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+LROBERT;Lucas Robert;MAGASIN01;Magasinier;OIS100;Commandes clients;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+LROBERT;Lucas Robert;MAGASIN01;Magasinier;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+MPETIT;Marc Petit;COMPTA01;Comptable;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+MPETIT;Marc Petit;COMPTA01;Comptable;OIS100;Commandes clients;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
+MPETIT;Marc Petit;COMPTA01;Comptable;PPS200;Commandes fournisseurs;100;AAA;20;5;Consulter;1;Consultation uniquement
+PMARTIN;Paul Martin;ACHAT01;Acheteur;MMS001;Gestion des articles;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+PMARTIN;Paul Martin;ACHAT01;Acheteur;OIS100;Commandes clients;100;AAA;20;5;Consulter;1;Consultation uniquement
+PMARTIN;Paul Martin;ACHAT01;Acheteur;PPS200;Commandes fournisseurs;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+SLEROY;Sophie Leroy;AUDIT01;Auditeur;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
+SLEROY;Sophie Leroy;AUDIT01;Auditeur;OIS100;Commandes clients;100;AAA;20;5;Consulter;1;Consultation uniquement
+SLEROY;Sophie Leroy;AUDIT01;Auditeur;PPS200;Commandes fournisseurs;100;AAA;20;5;Consulter;1;Consultation uniquement
+SMOREAU;Sarah Moreau;ACHAT01;Acheteur;MMS001;Gestion des articles;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
+SMOREAU;Sarah Moreau;ACHAT01;Acheteur;OIS100;Commandes clients;100;AAA;20;5;Consulter;1;Consultation uniquement
+SMOREAU;Sarah Moreau;ACHAT01;Acheteur;PPS200;Commandes fournisseurs;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée

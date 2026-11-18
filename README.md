@@ -1,18 +1,24 @@
 # Sonepar Libellés
 
-Projet pédagogique réalisé dans le cadre d’un entretien pour une alternance. Il s’agit d’un cas pratique autonome, inspiré des enjeux de gestion des habilitations de l’ERP Infor M3.
+Projet pédagogique réalisé de manière autonome à la suite d’un échange dans le cadre de ma candidature à une alternance chez Sonepar. Il s’inspire des enjeux de gestion des habilitations autour de l’ERP Infor M3.
 
-L’application Django illustre comment rendre les droits associés aux fonctions M3 compréhensibles et exploitables. Faute d’accès à un environnement Infor M3 dans le cadre de cet exercice, les données sources sont simulées à l’aide de fichiers CSV placés dans le dossier `donnees/`.
+L’application Django a été développée dans le but de mieux comprendre le travail de l’équipe sur la gestion des habilitations M3, notamment le traitement des droits des fonctions, stockés en base de données sous forme de valeurs `0`, `1` ou `2`, leur association aux libellés correspondants et leur export au format CSV. Faute d’accès à un environnement Infor M3, les données sources sont simulées à l’aide de fichiers CSV placés dans le dossier `donnees/`.
 
-## Contexte pédagogique
+> **Important — hypothèse de classification :** n’ayant pas trouvé d’informations précises sur la signification des valeurs `0`, `1` et `2` pour les droits de fonctions M3, cette classification repose sur une hypothèse retenue pour le projet. Elle ne constitue pas une nomenclature standard confirmée par la documentation Infor M3.
+
+## Aperçu de l’export CSV
+
+![Aperçu de l’export CSV des habilitations](public/export_csv.png)
+
+## Contexte métier
 
 Le cas d’usage s’inspire d’une équipe chargée de la gestion des habilitations et des audits M3 : autoriser ou non certains profils à accéder aux fonctions de l’ERP, puis exploiter ces données dans des rapports ou des exports.
 
-Ce dépôt couvre le volet **Django / Python** de l’exercice. Il ne constitue pas une application interne de Sonepar et ne se connecte à aucun environnement M3.
+Ce dépôt se concentre sur le volet **Django / Python** de cette exploration. Il ne constitue pas une application interne de Sonepar et ne se connecte à aucun environnement M3.
 
 ## Finalité métier
 
-Dans le cadre de cet exercice, les niveaux d’accès aux fonctions M3 sont représentés par des valeurs numériques (`0`, `1` ou `2`). L’application associe ces valeurs à leurs libellés correspondants afin de faciliter leur lecture et leur interprétation.
+Dans le cadre de ce projet, les niveaux d’accès aux fonctions M3 sont représentés par des valeurs numériques (`0`, `1` ou `2`). L’application associe ces valeurs à leurs libellés correspondants afin de faciliter leur lecture et leur interprétation.
 
 Elle permet notamment de préparer des données enrichies pour des exports CSV, contenant à la fois le niveau d’accès et son libellé métier.
 
@@ -22,7 +28,7 @@ Les fichiers CSV du dossier `donnees/` constituent un jeu de données fictif des
 
 Ils sont organisés en deux ensembles : les données simulant les informations récupérables depuis M3 et les référentiels de correspondance utilisés pour leur associer des libellés.
 
-### Données issues de M3
+### Données simulant les API M3
 
 Quatre fichiers simulent les réponses de transactions API d’Infor M3 :
 
@@ -35,7 +41,7 @@ Quatre fichiers simulent les réponses de transactions API d’Infor M3 :
 
 Ces fichiers permettent de représenter les relations entre les utilisateurs, leurs rôles et les autorisations associées aux fonctions M3.
 
-Les structures et les données ont été simplifiées pour les besoins de l’exercice. Elles ne constituent pas des réponses authentiques des API M3.
+Les structures et les données ont été simplifiées pour les besoins du projet. Elles ne constituent pas des réponses authentiques des API M3.
 
 ### Référentiels de libellés
 
@@ -47,15 +53,13 @@ Trois fichiers complémentaires définissent les correspondances utilisées par 
 | `libelles_niveaux_acces.csv` | Niveaux d’accès numériques et libellés associés |
 | `libelles_options.csv` | Codes des options autorisées et libellés correspondants |
 
-Pour les besoins de l’exercice, les niveaux d’accès sont interprétés selon la correspondance suivante :
+Pour les besoins du projet, les niveaux d’accès sont interprétés selon la correspondance suivante :
 
 | Niveau | Libellé |
 | --- | --- |
 | `0` | Aucun droit actif accordé par ce rôle |
 | `1` | Consultation uniquement |
 | `2` | Modification autorisée |
-
-Cette classification est une convention pédagogique et ne correspond pas à une nomenclature standard confirmée des autorisations de fonctions M3.
 
 ### Exploitation des données
 
@@ -106,21 +110,15 @@ Appliquer les migrations, charger les référentiels CSV, puis générer un audi
 python manage.py migrate
 python manage.py seed_all
 python manage.py audit_habilitations
+python manage.py export_audit_habilitations
 ```
 
 La commande `seed_all` charge les référentiels de fonctions, niveaux d'accès, options, utilisateurs, rôles et associations M3. Chaque seeder ne charge des données que si sa table est vide.
 
-La commande `audit_habilitations` rapproche les utilisateurs, rôles, autorisations et référentiels. Elle crée un audit horodaté et affiche ses habilitations dans le terminal. Chaque lancement conserve un nouvel historique dans la base.
+La commande `audit_habilitations` rapproche les utilisateurs, rôles, autorisations et référentiels. Elle crée un audit horodaté et conserve ses habilitations dans la base. Chaque lancement crée un nouvel historique.
 
-## Données
+La commande `export_audit_habilitations` exporte le dernier audit des habilitations dans un fichier `exports/audit_habilitations_<id>_<datetime>.csv`, afin de le consulter ou de le transmettre.
 
-Les CSV attendus par les commandes de chargement se trouvent dans `donnees/`. Ils sont séparés par des points-virgules et encodés en UTF-8. Gardez leurs noms et leurs en-têtes inchangés pour que les commandes `*_seed` puissent les importer.
+## Conclusion
 
-## Technologies
-
-### Utilisées dans ce dépôt
-
-- Python
-- Django
-- Django REST Framework
-- SQLite
+Ce projet m’a permis de me familiariser avec une infime partie des enjeux de gestion des habilitations autour de l’ERP Infor M3, tout en mettant en pratique mes compétences en Django et Python.
