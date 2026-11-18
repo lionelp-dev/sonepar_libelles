@@ -1,0 +1,16 @@
+﻿role_id;code_fonction;libelle_fonction;societe;division;statut;options_autorisees;niveau_acces
+ACHAT01;MMS001;Gestion des articles;100;AAA;20;1,2,5;2
+ACHAT01;PPS200;Commandes fournisseurs;100;AAA;20;1,2,5;2
+ACHAT01;OIS100;Commandes clients;100;AAA;20;5;1
+MAGASIN01;MMS001;Gestion des articles;100;AAA;20;5;1
+MAGASIN01;PPS200;Commandes fournisseurs;100;AAA;10;;0
+MAGASIN01;OIS100;Commandes clients;100;AAA;10;;0
+COMM01;MMS001;Gestion des articles;100;AAA;20;5;1
+COMM01;PPS200;Commandes fournisseurs;100;AAA;10;;0
+COMM01;OIS100;Commandes clients;100;AAA;20;1,2,5;2
+AUDIT01;MMS001;Gestion des articles;100;AAA;20;5;1
+AUDIT01;PPS200;Commandes fournisseurs;100;AAA;20;5;1
+AUDIT01;OIS100;Commandes clients;100;AAA;20;5;1
+COMPTA01;MMS001;Gestion des articles;100;AAA;20;5;1
+COMPTA01;PPS200;Commandes fournisseurs;100;AAA;20;5;1
+COMPTA01;OIS100;Commandes clients;100;AAA;10;;0

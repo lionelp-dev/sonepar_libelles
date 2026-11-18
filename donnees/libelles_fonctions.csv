@@ -1,0 +1,4 @@
+﻿code_fonction;libelle_fonction;description
+MMS001;Gestion des articles;Article. Open — programme M3 associé aux fiches articles.
+PPS200;Commandes fournisseurs;Purchase Order. Open — programme M3 des commandes fournisseurs.
+OIS100;Commandes clients;Customer Order. Open — programme M3 des commandes clients.

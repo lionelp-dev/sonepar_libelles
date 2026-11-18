@@ -1,0 +1,6 @@
+﻿role_id;nom_role;description
+ACHAT01;Acheteur;Gestion des articles et des achats
+MAGASIN01;Magasinier;Consultation des articles et operations magasin
+COMM01;Commercial;Gestion des commandes clients
+AUDIT01;Auditeur;Consultation a des fins de controle
+COMPTA01;Comptable;Consultation des pieces utiles a la comptabilite
