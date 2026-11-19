@@ -9,7 +9,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from ..models import AuditHabilitations
-from ..serializers import AuditHabilitationsSerializer
+from ..serializers import AuditHabilitationsSerializer, HabilitationsSerializer
 from ..services.audit_habilitations import generate_audit, write_audit_csv
 from .common import list_response
 
@@ -28,6 +28,25 @@ def audit_habilitations(request):
     return list_response(
         audits_queryset().order_by("-created_at", "-pk"),
         AuditHabilitationsSerializer,
+    )
+
+
+@api_view(["GET"])
+def audit_habilitation_detail(request, audit_id):
+    """Retourne les métadonnées d'un instantané d'audit."""
+    audit = get_object_or_404(audits_queryset(), pk=audit_id)
+    return Response(AuditHabilitationsSerializer(audit).data)
+
+
+@api_view(["GET"])
+def audit_habilitation_habilitations(request, audit_id):
+    """Retourne uniquement les lignes de l'instantané demandé."""
+    audit = get_object_or_404(AuditHabilitations, pk=audit_id)
+    return list_response(
+        audit.habilitations.order_by(
+            "user_id", "role_id", "code_fonction", "societe", "division"
+        ),
+        HabilitationsSerializer,
     )
 
 

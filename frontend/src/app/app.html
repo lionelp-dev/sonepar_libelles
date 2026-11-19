@@ -6,11 +6,40 @@
         @for (item of navigation; track item.path) {
           <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
         }
+
+        <div class="nav-group">
+          <button
+            class="nav-group-toggle"
+            type="button"
+            aria-controls="m3-navigation"
+            [attr.aria-expanded]="m3MenuOpen"
+            (click)="toggleM3Menu()"
+          >
+            <span>Données Infor M3</span>
+            <span class="nav-group-chevron" aria-hidden="true">⌄</span>
+          </button>
+
+          @if (m3MenuOpen) {
+            <div id="m3-navigation" class="subnav">
+              @for (item of m3Navigation; track item.path) {
+                <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
+              }
+            </div>
+          }
+        </div>
       </nav>
     </aside>
 
-    <main>
-      <router-outlet />
-    </main>
+    <div class="content-area">
+      <header class="top-bar">
+        @if (isAuditDetail()) {
+          <a class="top-bar-return" routerLink="/audit-habilitations">← Retour aux audits</a>
+        }
+      </header>
+
+      <main>
+        <router-outlet />
+      </main>
+    </div>
   </div>
 </div>

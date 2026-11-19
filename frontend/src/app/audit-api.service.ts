@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { AuditHabilitations, ModelRecord } from './models';
+import { AuditHabilitations, Habilitation, ModelRecord } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class AuditApiService {
@@ -19,6 +19,16 @@ export class AuditApiService {
 
   generateAudit(): Observable<AuditHabilitations> {
     return this.http.post<AuditHabilitations>(this.baseUrl + 'audits/', {});
+  }
+
+  getAudit(auditId: number): Observable<AuditHabilitations> {
+    return this.http.get<AuditHabilitations>(this.baseUrl + 'audits/' + auditId + '/');
+  }
+
+  getAuditHabilitations(auditId: number): Observable<Habilitation[]> {
+    return this.http.get<Habilitation[]>(
+      this.baseUrl + 'audits/' + auditId + '/habilitations/',
+    );
   }
 
   getAuditExport(auditId: number): Observable<Blob> {

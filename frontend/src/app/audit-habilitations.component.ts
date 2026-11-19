@@ -1,5 +1,6 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuditApiService } from './audit-api.service';
 import { AuditHabilitations } from './models';
@@ -12,10 +13,11 @@ import { AuditHabilitations } from './models';
 })
 export class AuditHabilitationsComponent implements OnInit {
   private readonly api = inject(AuditApiService);
+  private readonly router = inject(Router, { optional: true });
 
   protected readonly audits = signal<AuditHabilitations[]>([]);
   protected readonly currentPage = signal(1);
-  protected readonly pageSize = 5;
+  protected readonly pageSize = 10;
   protected readonly pageCount = computed(() =>
     Math.max(1, Math.ceil(this.audits().length / this.pageSize)),
   );
@@ -83,6 +85,10 @@ export class AuditHabilitationsComponent implements OnInit {
         this.actionError.set('Le téléchargement du CSV a échoué. Réessayez dans un instant.');
       },
     });
+  }
+
+  protected openAudit(auditId: number): void {
+    void this.router?.navigate(['/audit-habilitations', auditId]);
   }
 
   protected previousPage(): void {

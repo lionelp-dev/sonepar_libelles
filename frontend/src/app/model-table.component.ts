@@ -17,7 +17,7 @@ export class ModelTableComponent implements OnInit {
   protected definition: ModelDefinition = modelDefinitions.MNS150MI_LstUsers;
   protected readonly rows = signal<ModelRecord[]>([]);
   protected readonly currentPage = signal(1);
-  protected readonly pageSize = 5;
+  protected readonly pageSize = 10;
   protected readonly pageCount = computed(() =>
     Math.max(1, Math.ceil(this.rows().length / this.pageSize)),
   );

@@ -1,10 +1,12 @@
 import { Routes } from '@angular/router';
 
 import { AuditHabilitationsComponent } from './audit-habilitations.component';
+import { AuditHabilitationDetailComponent } from './audit-habilitation-detail.component';
 import { ModelTableComponent } from './model-table.component';
 
 export const routes: Routes = [
   { path: 'audit-habilitations', component: AuditHabilitationsComponent },
+  { path: 'audit-habilitations/:auditId', component: AuditHabilitationDetailComponent },
   { path: 'utilisateurs', component: ModelTableComponent, data: { model: 'MNS150MI_LstUsers' } },
   { path: 'roles', component: ModelTableComponent, data: { model: 'MNS405MI_Lst' } },
   { path: 'affectations', component: ModelTableComponent, data: { model: 'MNS410MI_LstRolesByUser' } },
@@ -12,7 +14,6 @@ export const routes: Routes = [
   { path: 'fonctions', component: ModelTableComponent, data: { model: 'LibellesFonctions' } },
   { path: 'niveaux-acces', component: ModelTableComponent, data: { model: 'LibellesNiveauxAcces' } },
   { path: 'options', component: ModelTableComponent, data: { model: 'LibellesOptions' } },
-  { path: 'lignes-habilitations', component: ModelTableComponent, data: { model: 'Habilitations' } },
   { path: '', pathMatch: 'full', redirectTo: 'audit-habilitations' },
   { path: '**', redirectTo: 'audit-habilitations' },
 ];

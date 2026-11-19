@@ -1,6 +1,11 @@
 """Vues HTTP organisées par entité métier."""
 
-from .audit_habilitations import audit_habilitations, export_audit_habilitations
+from .audit_habilitations import (
+    audit_habilitation_detail,
+    audit_habilitation_habilitations,
+    audit_habilitations,
+    export_audit_habilitations,
+)
 from .habilitations import habilitations
 from .health import health
 from .libelles_fonctions import libelles_fonctions
@@ -13,6 +18,8 @@ from .ses400mi_lst_auth_by_role import ses400mi_lst_auth_by_role
 
 __all__ = [
     "audit_habilitations",
+    "audit_habilitation_detail",
+    "audit_habilitation_habilitations",
     "export_audit_habilitations",
     "habilitations",
     "health",

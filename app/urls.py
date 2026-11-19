@@ -13,6 +13,8 @@ urlpatterns = [
     path("access-levels/", views.libelles_niveaux_acces),
     path("options/", views.libelles_options),
     path("audits/", views.audit_habilitations),
+    path("audits/<int:audit_id>/", views.audit_habilitation_detail),
+    path("audits/<int:audit_id>/habilitations/", views.audit_habilitation_habilitations),
     path("audits/<int:audit_id>/export/", views.export_audit_habilitations),
     path("habilitations/", views.habilitations),
 ]

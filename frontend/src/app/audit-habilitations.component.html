@@ -39,12 +39,24 @@
         </thead>
         <tbody>
           @for (audit of displayedAudits(); track audit.id) {
-            <tr>
+            <tr
+              class="audit-row"
+              tabindex="0"
+              (click)="openAudit(audit.id)"
+              (keydown.enter)="openAudit(audit.id)"
+              (keydown.space)="$event.preventDefault(); openAudit(audit.id)"
+              [attr.aria-label]="'Consulter l’audit ' + audit.id"
+            >
               <td class="audit-id">#{{ audit.id }}</td>
               <td>{{ audit.created_at | date: 'dd/MM/yyyy à HH:mm' }}</td>
               <td>{{ audit.habilitations_count }}</td>
               <td class="action-cell">
-                <button class="download-button" type="button" (click)="download(audit)" [disabled]="downloadingId() === audit.id">
+                <button
+                  class="download-button"
+                  type="button"
+                  (click)="$event.stopPropagation(); download(audit)"
+                  [disabled]="downloadingId() === audit.id"
+                >
                   {{ downloadingId() === audit.id ? 'Préparation…' : 'Télécharger le CSV' }}
                 </button>
               </td>
@@ -53,12 +65,12 @@
         </tbody>
       </table>
     </div>
-    @if (pageCount() > 1) {
-      <nav class="pagination" aria-label="Pagination de l’historique">
-        <button type="button" (click)="previousPage()" [disabled]="currentPage() === 1">Précédente</button>
-        <span>Page {{ currentPage() }} sur {{ pageCount() }}</span>
-        <button type="button" (click)="nextPage()" [disabled]="currentPage() === pageCount()">Suivante</button>
-      </nav>
-    }
   </div>
+  @if (pageCount() > 1) {
+    <nav class="pagination" aria-label="Pagination de l’historique">
+      <button type="button" (click)="previousPage()" [disabled]="currentPage() === 1">Précédente</button>
+      <span>Page {{ currentPage() }} sur {{ pageCount() }}</span>
+      <button type="button" (click)="nextPage()" [disabled]="currentPage() === pageCount()">Suivante</button>
+    </nav>
+  }
 }

@@ -15,12 +15,6 @@
   <p class="state">Aucune donnée disponible.</p>
 } @else {
   <div class="table-card">
-    <div class="table-summary">
-      {{ rows().length }} enregistrement{{ rows().length > 1 ? 's' : '' }}
-      @if (pageCount() > 1) {
-        <span>· page {{ currentPage() }} sur {{ pageCount() }}</span>
-      }
-    </div>
     <div class="table-scroll">
       <table>
         <thead>
@@ -41,12 +35,12 @@
         </tbody>
       </table>
     </div>
-    @if (pageCount() > 1) {
-      <nav class="pagination" aria-label="Pagination du tableau">
-        <button type="button" (click)="previousPage()" [disabled]="currentPage() === 1">Précédente</button>
-        <span>Page {{ currentPage() }} sur {{ pageCount() }}</span>
-        <button type="button" (click)="nextPage()" [disabled]="currentPage() === pageCount()">Suivante</button>
-      </nav>
-    }
   </div>
+  @if (pageCount() > 1) {
+    <nav class="pagination" aria-label="Pagination du tableau">
+      <button type="button" (click)="previousPage()" [disabled]="currentPage() === 1">Précédente</button>
+      <span>Page {{ currentPage() }} sur {{ pageCount() }}</span>
+      <button type="button" (click)="nextPage()" [disabled]="currentPage() === pageCount()">Suivante</button>
+    </nav>
+  }
 }
