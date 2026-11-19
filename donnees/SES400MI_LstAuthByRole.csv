@@ -1,16 +1,183 @@
-﻿role_id;code_fonction;libelle_fonction;societe;division;statut;options_autorisees;niveau_acces
-ACHAT01;MMS001;Gestion des articles;100;AAA;20;1,2,5;2
-ACHAT01;PPS200;Commandes fournisseurs;100;AAA;20;1,2,5;2
-ACHAT01;OIS100;Commandes clients;100;AAA;20;5;1
-MAGASIN01;MMS001;Gestion des articles;100;AAA;20;5;1
-MAGASIN01;PPS200;Commandes fournisseurs;100;AAA;10;;0
-MAGASIN01;OIS100;Commandes clients;100;AAA;10;;0
-COMM01;MMS001;Gestion des articles;100;AAA;20;5;1
-COMM01;PPS200;Commandes fournisseurs;100;AAA;10;;0
-COMM01;OIS100;Commandes clients;100;AAA;20;1,2,5;2
-AUDIT01;MMS001;Gestion des articles;100;AAA;20;5;1
-AUDIT01;PPS200;Commandes fournisseurs;100;AAA;20;5;1
-AUDIT01;OIS100;Commandes clients;100;AAA;20;5;1
-COMPTA01;MMS001;Gestion des articles;100;AAA;20;5;1
-COMPTA01;PPS200;Commandes fournisseurs;100;AAA;20;5;1
-COMPTA01;OIS100;Commandes clients;100;AAA;10;;0
+﻿role_id;code_fonction;libelle_fonction;societe;division;statut;code_option
+ACHAT01;MMS001;Gestion des fiches articles;100;AAA;20;1
+ACHAT01;MMS001;Gestion des fiches articles;100;AAA;20;2
+ACHAT01;MMS001;Gestion des fiches articles;100;AAA;20;5
+ACHAT01;PPS200;Gestion des commandes fournisseurs;100;AAA;20;1
+ACHAT01;PPS200;Gestion des commandes fournisseurs;100;AAA;20;2
+ACHAT01;PPS200;Gestion des commandes fournisseurs;100;AAA;20;5
+ACHAT01;OIS100;Gestion des commandes clients;100;AAA;20;5
+MAGASIN01;MMS001;Gestion des fiches articles;100;AAA;20;5
+MAGASIN01;PPS200;Gestion des commandes fournisseurs;100;AAA;10;
+MAGASIN01;OIS100;Gestion des commandes clients;100;AAA;10;
+COMM01;MMS001;Gestion des fiches articles;100;AAA;20;5
+COMM01;PPS200;Gestion des commandes fournisseurs;100;AAA;10;
+COMM01;OIS100;Gestion des commandes clients;100;AAA;20;1
+COMM01;OIS100;Gestion des commandes clients;100;AAA;20;2
+COMM01;OIS100;Gestion des commandes clients;100;AAA;20;5
+AUDIT01;MMS001;Gestion des fiches articles;100;AAA;20;5
+AUDIT01;PPS200;Gestion des commandes fournisseurs;100;AAA;20;5
+AUDIT01;OIS100;Gestion des commandes clients;100;AAA;20;5
+COMPTA01;MMS001;Gestion des fiches articles;100;AAA;20;5
+COMPTA01;PPS200;Gestion des commandes fournisseurs;100;AAA;20;5
+COMPTA01;OIS100;Gestion des commandes clients;100;AAA;10;
+ACHAT01;MMS010;Gestion des emplacements de stockage;100;AAA;20;5
+ACHAT01;MMS100;Suivi des mouvements de stock;100;AAA;20;5
+ACHAT01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+ACHAT01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;1
+ACHAT01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;2
+ACHAT01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;5
+ACHAT01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;5
+ACHAT01;PPS310;Contrôle qualité des marchandises reçues;100;AAA;20;5
+ACHAT01;PPS450;Consultation des statistiques d'achat;100;AAA;20;5
+ACHAT01;PPS450;Consultation des statistiques d'achat;100;AAA;20;6
+ACHAT01;OIS300;Recherche des commandes clients;100;AAA;20;5
+MAGASIN01;MMS010;Gestion des emplacements de stockage;100;AAA;20;5
+MAGASIN01;MMS100;Suivi des mouvements de stock;100;AAA;20;1
+MAGASIN01;MMS100;Suivi des mouvements de stock;100;AAA;20;2
+MAGASIN01;MMS100;Suivi des mouvements de stock;100;AAA;20;5
+MAGASIN01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+MAGASIN01;MMS300;Suivi des inventaires de stock;100;AAA;20;1
+MAGASIN01;MMS300;Suivi des inventaires de stock;100;AAA;20;2
+MAGASIN01;MMS300;Suivi des inventaires de stock;100;AAA;20;5
+MAGASIN01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;5
+MAGASIN01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;1
+MAGASIN01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;2
+MAGASIN01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;5
+MAGASIN01;OIS150;Gestion des livraisons clients;100;AAA;20;5
+COMM01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+COMM01;OIS101;Détail des lignes de commandes clients;100;AAA;20;1
+COMM01;OIS101;Détail des lignes de commandes clients;100;AAA;20;2
+COMM01;OIS101;Détail des lignes de commandes clients;100;AAA;20;5
+COMM01;OIS150;Gestion des livraisons clients;100;AAA;20;5
+COMM01;OIS300;Recherche des commandes clients;100;AAA;20;5
+COMM01;OIS350;Recherche des factures clients;100;AAA;20;5
+COMM01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;10;
+AUDIT01;MMS010;Gestion des emplacements de stockage;100;AAA;20;5
+AUDIT01;MMS100;Suivi des mouvements de stock;100;AAA;20;5
+AUDIT01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+AUDIT01;MMS300;Suivi des inventaires de stock;100;AAA;20;5
+AUDIT01;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;5
+AUDIT01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;5
+AUDIT01;PPS310;Contrôle qualité des marchandises reçues;100;AAA;20;5
+AUDIT01;PPS450;Consultation des statistiques d'achat;100;AAA;20;5
+AUDIT01;PPS450;Consultation des statistiques d'achat;100;AAA;20;6
+AUDIT01;OIS101;Détail des lignes de commandes clients;100;AAA;20;5
+AUDIT01;OIS150;Gestion des livraisons clients;100;AAA;20;5
+AUDIT01;OIS300;Recherche des commandes clients;100;AAA;20;5
+AUDIT01;OIS350;Recherche des factures clients;100;AAA;20;5
+AUDIT01;GLS100;Saisie des écritures comptables;100;AAA;20;5
+AUDIT01;GLS200;Consultation des numéros de pièces comptables;100;AAA;20;5
+AUDIT01;GLS210;Consultation du détail des écritures comptables;100;AAA;20;5
+AUDIT01;MNS110;Configuration des fonctions M3;100;AAA;20;5
+AUDIT01;MNS405;Définition et gestion des rôles;100;AAA;20;5
+AUDIT01;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;5
+AUDIT01;SES400;Gestion des droits par rôle et fonction;100;AAA;20;5
+AUDIT01;SES401;Consultation des droits par utilisateur;100;AAA;20;5
+AUDIT01;SES510;Historique des modifications d'habilitations;100;AAA;20;5
+AUDIT01;SES511;Édition des rapports d'audit des habilitations;100;AAA;20;5
+AUDIT01;SES511;Édition des rapports d'audit des habilitations;100;AAA;20;6
+COMPTA01;GLS100;Saisie des écritures comptables;100;AAA;20;1
+COMPTA01;GLS100;Saisie des écritures comptables;100;AAA;20;2
+COMPTA01;GLS100;Saisie des écritures comptables;100;AAA;20;5
+COMPTA01;GLS200;Consultation des numéros de pièces comptables;100;AAA;20;5
+COMPTA01;GLS210;Consultation du détail des écritures comptables;100;AAA;20;5
+COMPTA01;OIS350;Recherche des factures clients;100;AAA;20;5
+COMPTA01;OIS300;Recherche des commandes clients;100;AAA;20;5
+LOGIST01;MMS001;Gestion des fiches articles;100;AAA;20;5
+LOGIST01;MMS010;Gestion des emplacements de stockage;100;AAA;20;5
+LOGIST01;MMS100;Suivi des mouvements de stock;100;AAA;20;1
+LOGIST01;MMS100;Suivi des mouvements de stock;100;AAA;20;2
+LOGIST01;MMS100;Suivi des mouvements de stock;100;AAA;20;5
+LOGIST01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+LOGIST01;MMS300;Suivi des inventaires de stock;100;AAA;20;1
+LOGIST01;MMS300;Suivi des inventaires de stock;100;AAA;20;2
+LOGIST01;MMS300;Suivi des inventaires de stock;100;AAA;20;5
+LOGIST01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;1
+LOGIST01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;2
+LOGIST01;PPS300;Gestion des réceptions de marchandises;100;AAA;20;5
+LOGIST01;OIS150;Gestion des livraisons clients;100;AAA;20;5
+LOGIST01;OIS300;Recherche des commandes clients;100;AAA;20;5
+ACHATRESP;MMS001;Gestion des fiches articles;100;AAA;20;1
+ACHATRESP;MMS001;Gestion des fiches articles;100;AAA;20;2
+ACHATRESP;MMS001;Gestion des fiches articles;100;AAA;20;5
+ACHATRESP;MMS010;Gestion des emplacements de stockage;100;AAA;20;5
+ACHATRESP;MMS200;Recherche et consultation des articles;100;AAA;20;5
+ACHATRESP;PPS200;Gestion des commandes fournisseurs;100;AAA;20;1
+ACHATRESP;PPS200;Gestion des commandes fournisseurs;100;AAA;20;2
+ACHATRESP;PPS200;Gestion des commandes fournisseurs;100;AAA;20;5
+ACHATRESP;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;1
+ACHATRESP;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;2
+ACHATRESP;PPS201;Détail des lignes de commandes fournisseurs;100;AAA;20;5
+ACHATRESP;PPS300;Gestion des réceptions de marchandises;100;AAA;20;5
+ACHATRESP;PPS310;Contrôle qualité des marchandises reçues;100;AAA;20;5
+ACHATRESP;PPS450;Consultation des statistiques d'achat;100;AAA;20;5
+ACHATRESP;PPS450;Consultation des statistiques d'achat;100;AAA;20;6
+ACHATRESP;OIS100;Gestion des commandes clients;100;AAA;20;5
+ACHATRESP;OIS300;Recherche des commandes clients;100;AAA;20;5
+COMPTARESP;GLS100;Saisie des écritures comptables;100;AAA;20;1
+COMPTARESP;GLS100;Saisie des écritures comptables;100;AAA;20;2
+COMPTARESP;GLS100;Saisie des écritures comptables;100;AAA;20;5
+COMPTARESP;GLS200;Consultation des numéros de pièces comptables;100;AAA;20;1
+COMPTARESP;GLS200;Consultation des numéros de pièces comptables;100;AAA;20;2
+COMPTARESP;GLS200;Consultation des numéros de pièces comptables;100;AAA;20;5
+COMPTARESP;GLS210;Consultation du détail des écritures comptables;100;AAA;20;5
+COMPTARESP;OIS350;Recherche des factures clients;100;AAA;20;5
+COMPTARESP;PPS200;Gestion des commandes fournisseurs;100;AAA;20;5
+COMPTARESP;PPS450;Consultation des statistiques d'achat;100;AAA;20;5
+COMPTARESP;PPS450;Consultation des statistiques d'achat;100;AAA;20;6
+SECUM301;MNS110;Configuration des fonctions M3;100;AAA;20;1
+SECUM301;MNS110;Configuration des fonctions M3;100;AAA;20;2
+SECUM301;MNS110;Configuration des fonctions M3;100;AAA;20;3
+SECUM301;MNS110;Configuration des fonctions M3;100;AAA;20;4
+SECUM301;MNS110;Configuration des fonctions M3;100;AAA;20;5
+SECUM301;MNS405;Définition et gestion des rôles;100;AAA;20;1
+SECUM301;MNS405;Définition et gestion des rôles;100;AAA;20;2
+SECUM301;MNS405;Définition et gestion des rôles;100;AAA;20;3
+SECUM301;MNS405;Définition et gestion des rôles;100;AAA;20;4
+SECUM301;MNS405;Définition et gestion des rôles;100;AAA;20;5
+SECUM301;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;1
+SECUM301;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;2
+SECUM301;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;3
+SECUM301;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;4
+SECUM301;MNS410;Attribution des rôles aux utilisateurs;100;AAA;20;5
+SECUM301;SES400;Gestion des droits par rôle et fonction;100;AAA;20;1
+SECUM301;SES400;Gestion des droits par rôle et fonction;100;AAA;20;2
+SECUM301;SES400;Gestion des droits par rôle et fonction;100;AAA;20;3
+SECUM301;SES400;Gestion des droits par rôle et fonction;100;AAA;20;4
+SECUM301;SES400;Gestion des droits par rôle et fonction;100;AAA;20;5
+SECUM301;SES401;Consultation des droits par utilisateur;100;AAA;20;5
+SECUM301;SES510;Historique des modifications d'habilitations;100;AAA;20;5
+SECUM301;SES511;Édition des rapports d'audit des habilitations;100;AAA;20;5
+SECUM301;SES511;Édition des rapports d'audit des habilitations;100;AAA;20;6
+SECUM301;MMS001;Gestion des fiches articles;100;AAA;20;5
+SAV01;OIS100;Gestion des commandes clients;100;AAA;20;5
+SAV01;OIS101;Détail des lignes de commandes clients;100;AAA;20;5
+SAV01;OIS150;Gestion des livraisons clients;100;AAA;20;5
+SAV01;OIS300;Recherche des commandes clients;100;AAA;20;5
+SAV01;OIS350;Recherche des factures clients;100;AAA;20;5
+SAV01;MMS200;Recherche et consultation des articles;100;AAA;20;5
+MAGASIN02;MMS001;Gestion des fiches articles;200;BBB;20;5
+MAGASIN02;MMS010;Gestion des emplacements de stockage;200;BBB;20;5
+MAGASIN02;MMS100;Suivi des mouvements de stock;200;BBB;20;1
+MAGASIN02;MMS100;Suivi des mouvements de stock;200;BBB;20;2
+MAGASIN02;MMS100;Suivi des mouvements de stock;200;BBB;20;5
+MAGASIN02;MMS200;Recherche et consultation des articles;200;BBB;20;5
+MAGASIN02;MMS300;Suivi des inventaires de stock;200;BBB;20;1
+MAGASIN02;MMS300;Suivi des inventaires de stock;200;BBB;20;2
+MAGASIN02;MMS300;Suivi des inventaires de stock;200;BBB;20;5
+MAGASIN02;PPS300;Gestion des réceptions de marchandises;200;BBB;20;1
+MAGASIN02;PPS300;Gestion des réceptions de marchandises;200;BBB;20;2
+MAGASIN02;PPS300;Gestion des réceptions de marchandises;200;BBB;20;5
+ACHAT02;MMS001;Gestion des fiches articles;200;BBB;20;1
+ACHAT02;MMS001;Gestion des fiches articles;200;BBB;20;2
+ACHAT02;MMS001;Gestion des fiches articles;200;BBB;20;5
+ACHAT02;MMS200;Recherche et consultation des articles;200;BBB;20;5
+ACHAT02;PPS200;Gestion des commandes fournisseurs;200;BBB;20;1
+ACHAT02;PPS200;Gestion des commandes fournisseurs;200;BBB;20;2
+ACHAT02;PPS200;Gestion des commandes fournisseurs;200;BBB;20;5
+ACHAT02;PPS201;Détail des lignes de commandes fournisseurs;200;BBB;20;1
+ACHAT02;PPS201;Détail des lignes de commandes fournisseurs;200;BBB;20;2
+ACHAT02;PPS201;Détail des lignes de commandes fournisseurs;200;BBB;20;5
+ACHAT02;PPS300;Gestion des réceptions de marchandises;200;BBB;20;5
+ACHAT02;PPS450;Consultation des statistiques d'achat;200;BBB;20;5
+ACHAT02;PPS450;Consultation des statistiques d'achat;200;BBB;20;6

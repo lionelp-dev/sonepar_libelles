@@ -15,15 +15,14 @@ class Migration(migrations.Migration):
                 ("societe", models.CharField(max_length=20)),
                 ("division", models.CharField(max_length=20)),
                 ("statut", models.CharField(max_length=10)),
-                ("options_autorisees", models.CharField(max_length=255)),
-                ("niveau_acces", models.PositiveSmallIntegerField()),
+                ("code_option", models.CharField(blank=True, max_length=10)),
             ],
             options={
                 "db_table": "ses400mi_lst_auth_by_role",
                 "constraints": [
                     models.UniqueConstraint(
-                        fields=("role_id", "code_fonction", "societe", "division"),
-                        name="ses400mi_role_fonction_unique",
+                        fields=("role_id", "code_fonction", "societe", "division", "code_option"),
+                        name="ses400mi_role_fonction_option_unique",
                     ),
                 ],
             },

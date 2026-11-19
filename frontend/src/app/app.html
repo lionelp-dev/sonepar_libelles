@@ -1,12 +1,8 @@
 <div class="application-shell">
   <div class="workspace">
     <aside class="sidebar" aria-label="Navigation principale">
-      <p class="sidebar-title">Données d’audit</p>
+      <p class="sidebar-title">Interfaces</p>
       <nav>
-        @for (item of navigation; track item.path) {
-          <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
-        }
-
         <div class="nav-group">
           <button
             class="nav-group-toggle"
@@ -21,7 +17,7 @@
 
           @if (m3MenuOpen) {
             <div id="m3-navigation" class="subnav">
-              @for (item of m3Navigation; track item.path) {
+              @for (item of navigation; track item.path) {
                 <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
               }
             </div>
@@ -30,16 +26,8 @@
       </nav>
     </aside>
 
-    <div class="content-area">
-      <header class="top-bar">
-        @if (isAuditDetail()) {
-          <a class="top-bar-return" routerLink="/audit-habilitations">← Retour aux audits</a>
-        }
-      </header>
-
-      <main>
-        <router-outlet />
-      </main>
-    </div>
+    <main>
+      <router-outlet />
+    </main>
   </div>
 </div>

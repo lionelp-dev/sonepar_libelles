@@ -2,7 +2,7 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-    dependencies = [("app", "0007_create_habilitations")]
+    dependencies = [("app", "0005_create_mns405mi_lst")]
 
     operations = [
         migrations.CreateModel(

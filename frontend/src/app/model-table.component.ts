@@ -1,7 +1,7 @@
 import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { AuditApiService } from './audit-api.service';
+import { M3DataApiService } from './m3-data-api.service';
 import { modelDefinitions, ReadOnlyModelName } from './model-definitions';
 import { ModelDefinition, ModelRecord, ModelTableColumn } from './models';
 
@@ -12,7 +12,7 @@ import { ModelDefinition, ModelRecord, ModelTableColumn } from './models';
 })
 export class ModelTableComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
-  private readonly api = inject(AuditApiService);
+  private readonly api = inject(M3DataApiService);
 
   protected definition: ModelDefinition = modelDefinitions.MNS150MI_LstUsers;
   protected readonly rows = signal<ModelRecord[]>([]);
@@ -50,7 +50,7 @@ export class ModelTableComponent implements OnInit {
     });
   }
 
-  protected displayValue(row: ModelRecord, column: ModelTableColumn): string | number {
+  protected displayValue(row: ModelRecord, column: ModelTableColumn): string | number | boolean {
     return row[column.key] ?? '—';
   }
 

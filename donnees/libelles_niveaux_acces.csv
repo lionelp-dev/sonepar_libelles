@@ -1,4 +1,0 @@
-﻿niveau_acces;libelle_niveau_acces;description
-0;Aucun droit actif accordé par ce rôle;"Aucune option active accordée par cet enregistrement de rôle pour la fonction ; ne conclut pas aux droits effectifs de l’utilisateur."
-1;Consultation uniquement;Autorisation de consultation (option 5) sans modification dans ce jeu de données pédagogique.
-2;Modification autorisée;"Modification permise (option 2), avec éventuellement création (option 1) et consultation (option 5) ; autres options non déduites."

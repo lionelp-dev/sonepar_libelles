@@ -1,19 +1,17 @@
 import { Routes } from '@angular/router';
 
-import { AuditHabilitationsComponent } from './audit-habilitations.component';
-import { AuditHabilitationDetailComponent } from './audit-habilitation-detail.component';
 import { ModelTableComponent } from './model-table.component';
 
 export const routes: Routes = [
-  { path: 'audit-habilitations', component: AuditHabilitationsComponent },
-  { path: 'audit-habilitations/:auditId', component: AuditHabilitationDetailComponent },
+  { path: 'catalogue-fonctions', component: ModelTableComponent, data: { model: 'MNS110MI_Lst' } },
   { path: 'utilisateurs', component: ModelTableComponent, data: { model: 'MNS150MI_LstUsers' } },
   { path: 'roles', component: ModelTableComponent, data: { model: 'MNS405MI_Lst' } },
   { path: 'affectations', component: ModelTableComponent, data: { model: 'MNS410MI_LstRolesByUser' } },
-  { path: 'autorisations', component: ModelTableComponent, data: { model: 'SES400MI_LstAuthByRole' } },
+  { path: 'autorisations-role', component: ModelTableComponent, data: { model: 'SES400MI_LstAuthByRole' } },
+  { path: 'autorisations-utilisateur', component: ModelTableComponent, data: { model: 'SES401_CMNPUS' } },
+  { path: 'historique-habilitations', component: ModelTableComponent, data: { model: 'SES510MI_Lst' } },
   { path: 'fonctions', component: ModelTableComponent, data: { model: 'LibellesFonctions' } },
-  { path: 'niveaux-acces', component: ModelTableComponent, data: { model: 'LibellesNiveauxAcces' } },
   { path: 'options', component: ModelTableComponent, data: { model: 'LibellesOptions' } },
-  { path: '', pathMatch: 'full', redirectTo: 'audit-habilitations' },
-  { path: '**', redirectTo: 'audit-habilitations' },
+  { path: '', pathMatch: 'full', redirectTo: 'utilisateurs' },
+  { path: '**', redirectTo: 'utilisateurs' },
 ];

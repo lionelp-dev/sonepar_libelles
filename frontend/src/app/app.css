@@ -102,31 +102,6 @@ nav a.active {
   font-size: 0.82rem;
 }
 
-.content-area {
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  height: 100vh;
-}
-
-.top-bar {
-  display: flex;
-  align-items: center;
-  flex: 0 0 4.5rem;
-  padding-inline: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-.top-bar-return {
-  color: #087d6c;
-  font-size: 0.9rem;
-  font-weight: 750;
-  text-decoration: none;
-}
-
-.top-bar-return:hover {
-  text-decoration: underline;
-}
-
 main {
   display: flex;
   flex: 1;
@@ -135,8 +110,6 @@ main {
   padding: 0 clamp(1.25rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
 }
 
-main > app-audit-habilitations,
-main > app-audit-habilitation-detail,
 main > app-model-table {
   display: flex;
   flex: 1;
@@ -149,11 +122,6 @@ main > app-model-table {
 @media (max-width: 760px) {
   .workspace {
     display: block;
-  }
-
-  .content-area {
-    height: auto;
-    min-height: 100vh;
   }
 
   .sidebar {

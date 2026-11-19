@@ -15,6 +15,7 @@ def ses400mi_lst_auth_by_role(request):
             "code_fonction",
             "societe",
             "division",
+            "code_option",
         ),
         SES400MI_LstAuthByRoleSerializer,
     )

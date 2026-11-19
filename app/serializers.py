@@ -1,15 +1,15 @@
 from rest_framework import serializers
 
 from .models import (
-    AuditHabilitations,
-    Habilitations,
     LibellesFonctions,
-    LibellesNiveauxAcces,
     LibellesOptions,
+    MNS110MI_Lst,
     MNS150MI_LstUsers,
     MNS405MI_Lst,
     MNS410MI_LstRolesByUser,
     SES400MI_LstAuthByRole,
+    SES401_CMNPUS,
+    SES510MI_Lst,
 )
 
 
@@ -17,6 +17,17 @@ class MNS150MI_LstUsersSerializer(serializers.ModelSerializer):
     class Meta:
         model = MNS150MI_LstUsers
         fields = ("user_id", "nom_complet", "statut")
+
+
+class MNS110MI_LstSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MNS110MI_Lst
+        fields = (
+            "code_fonction",
+            "programme_m3",
+            "categorie_fonction",
+            "autorisation_requise",
+        )
 
 
 class MNS405MI_LstSerializer(serializers.ModelSerializer):
@@ -42,8 +53,7 @@ class SES400MI_LstAuthByRoleSerializer(serializers.ModelSerializer):
             "societe",
             "division",
             "statut",
-            "options_autorisees",
-            "niveau_acces",
+            "code_option",
         )
 
 
@@ -53,10 +63,19 @@ class LibellesFonctionsSerializer(serializers.ModelSerializer):
         fields = ("code_fonction", "libelle_fonction", "description")
 
 
-class LibellesNiveauxAccesSerializer(serializers.ModelSerializer):
+class SES401_CMNPUSSerializer(serializers.ModelSerializer):
     class Meta:
-        model = LibellesNiveauxAcces
-        fields = ("niveau_acces", "libelle_niveau_acces", "description")
+        model = SES401_CMNPUS
+        fields = (
+            "id",
+            "user_id",
+            "nom_complet",
+            "programme_m3",
+            "societe",
+            "division",
+            "role_id",
+            "code_option",
+        )
 
 
 class LibellesOptionsSerializer(serializers.ModelSerializer):
@@ -65,31 +84,28 @@ class LibellesOptionsSerializer(serializers.ModelSerializer):
         fields = ("code_option", "libelle_option", "libelle_anglais", "description")
 
 
-class AuditHabilitationsSerializer(serializers.ModelSerializer):
-    habilitations_count = serializers.IntegerField(read_only=True)
-
+class SES510MI_LstSerializer(serializers.ModelSerializer):
     class Meta:
-        model = AuditHabilitations
-        fields = ("id", "created_at", "habilitations_count")
-
-
-class HabilitationsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Habilitations
+        model = SES510MI_Lst
         fields = (
             "id",
-            "audit",
-            "user_id",
-            "nom_complet",
-            "role_id",
-            "nom_role",
-            "code_fonction",
-            "libelle_fonction",
-            "societe",
-            "division",
-            "statut",
-            "options_autorisees",
-            "libelles_options_autorisees",
-            "niveau_acces",
-            "libelle_niveau_acces",
+            "id_evenement",
+            "trdt",
+            "trtm",
+            "usiu",
+            "conu",
+            "divu",
+            "prgnu",
+            "modifie_par",
+            "programme_origine",
+            "code_operation",
+            "role_modifie",
+            "fonction_modifiee",
+            "utilisateur_modifie",
+            "code_option",
+            "autorisee_avant",
+            "autorisee_apres",
+            "options_de_base_modifiees",
+            "options_associees_modifiees",
+            "touches_fonction_modifiees",
         )

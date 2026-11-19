@@ -1,16 +1,28 @@
 import { ModelDefinition } from './models';
 
 export type ReadOnlyModelName =
+  | 'MNS110MI_Lst'
   | 'MNS150MI_LstUsers'
   | 'MNS405MI_Lst'
   | 'MNS410MI_LstRolesByUser'
   | 'SES400MI_LstAuthByRole'
+  | 'SES401_CMNPUS'
+  | 'SES510MI_Lst'
   | 'LibellesFonctions'
-  | 'LibellesNiveauxAcces'
-  | 'LibellesOptions'
-  | 'Habilitations';
+  | 'LibellesOptions';
 
 export const modelDefinitions: Record<ReadOnlyModelName, ModelDefinition> = {
+  MNS110MI_Lst: {
+    apiPath: 'function-catalog/',
+    title: 'MNS110MI_Lst',
+    description: 'Catalogue des fonctions M3 retourné par MNS110MI.',
+    columns: [
+      { key: 'code_fonction', label: 'Code fonction' },
+      { key: 'programme_m3', label: 'Programme M3' },
+      { key: 'categorie_fonction', label: 'Catégorie' },
+      { key: 'autorisation_requise', label: 'Autorisation requise' },
+    ],
+  },
   MNS150MI_LstUsers: {
     apiPath: 'users/',
     title: 'MNS150MI_LstUsers',
@@ -43,7 +55,7 @@ export const modelDefinitions: Record<ReadOnlyModelName, ModelDefinition> = {
   SES400MI_LstAuthByRole: {
     apiPath: 'role-authorizations/',
     title: 'SES400MI_LstAuthByRole',
-    description: 'Droits de fonctions retournés par SES400MI.',
+    description: 'Droits théoriques par rôle retournés par SES400MI.',
     columns: [
       { key: 'role_id', label: 'Rôle' },
       { key: 'code_fonction', label: 'Fonction' },
@@ -51,8 +63,47 @@ export const modelDefinitions: Record<ReadOnlyModelName, ModelDefinition> = {
       { key: 'societe', label: 'Société' },
       { key: 'division', label: 'Division' },
       { key: 'statut', label: 'Statut' },
-      { key: 'options_autorisees', label: 'Options' },
-      { key: 'niveau_acces', label: 'Niveau' },
+      { key: 'code_option', label: 'Code option' },
+    ],
+  },
+  SES401_CMNPUS: {
+    apiPath: 'user-authorizations/',
+    title: 'SES401_CMNPUS',
+    description: 'Droits effectifs par utilisateur retournés par SES401.',
+    columns: [
+      { key: 'user_id', label: 'Utilisateur' },
+      { key: 'nom_complet', label: 'Nom complet' },
+      { key: 'programme_m3', label: 'Programme M3' },
+      { key: 'societe', label: 'Société' },
+      { key: 'division', label: 'Division' },
+      { key: 'role_id', label: 'Rôle' },
+      { key: 'code_option', label: 'Code option' },
+    ],
+  },
+  SES510MI_Lst: {
+    apiPath: 'authorization-history/',
+    title: 'SES510MI_Lst',
+    description: 'Journal des modifications d’habilitations retourné par SES510MI.',
+    columns: [
+      { key: 'id_evenement', label: 'Événement' },
+      { key: 'trdt', label: 'Date' },
+      { key: 'trtm', label: 'Heure' },
+      { key: 'usiu', label: 'Utilisateur source' },
+      { key: 'conu', label: 'Société' },
+      { key: 'divu', label: 'Division' },
+      { key: 'prgnu', label: 'Programme' },
+      { key: 'modifie_par', label: 'Modifié par' },
+      { key: 'programme_origine', label: 'Programme origine' },
+      { key: 'code_operation', label: 'Opération' },
+      { key: 'role_modifie', label: 'Rôle modifié' },
+      { key: 'fonction_modifiee', label: 'Fonction modifiée' },
+      { key: 'utilisateur_modifie', label: 'Utilisateur modifié' },
+      { key: 'code_option', label: 'Code option' },
+      { key: 'autorisee_avant', label: 'Autorisée avant' },
+      { key: 'autorisee_apres', label: 'Autorisée après' },
+      { key: 'options_de_base_modifiees', label: 'Options de base modifiées' },
+      { key: 'options_associees_modifiees', label: 'Options associées modifiées' },
+      { key: 'touches_fonction_modifiees', label: 'Touches fonction modifiées' },
     ],
   },
   LibellesFonctions: {
@@ -65,16 +116,6 @@ export const modelDefinitions: Record<ReadOnlyModelName, ModelDefinition> = {
       { key: 'description', label: 'Description' },
     ],
   },
-  LibellesNiveauxAcces: {
-    apiPath: 'access-levels/',
-    title: 'LibellesNiveauxAcces',
-    description: 'Référentiel des niveaux de droit.',
-    columns: [
-      { key: 'niveau_acces', label: 'Niveau' },
-      { key: 'libelle_niveau_acces', label: 'Libellé' },
-      { key: 'description', label: 'Description' },
-    ],
-  },
   LibellesOptions: {
     apiPath: 'options/',
     title: 'LibellesOptions',
@@ -84,27 +125,6 @@ export const modelDefinitions: Record<ReadOnlyModelName, ModelDefinition> = {
       { key: 'libelle_option', label: 'Libellé' },
       { key: 'libelle_anglais', label: 'Libellé anglais' },
       { key: 'description', label: 'Description' },
-    ],
-  },
-  Habilitations: {
-    apiPath: 'habilitations/',
-    title: 'Habilitations',
-    description: 'Lignes enrichies, conservées dans les instantanés d’audit.',
-    columns: [
-      { key: 'audit', label: 'Audit' },
-      { key: 'user_id', label: 'Utilisateur' },
-      { key: 'nom_complet', label: 'Nom complet' },
-      { key: 'role_id', label: 'Rôle' },
-      { key: 'nom_role', label: 'Nom du rôle' },
-      { key: 'code_fonction', label: 'Fonction' },
-      { key: 'libelle_fonction', label: 'Libellé fonction' },
-      { key: 'societe', label: 'Société' },
-      { key: 'division', label: 'Division' },
-      { key: 'statut', label: 'Statut' },
-      { key: 'options_autorisees', label: 'Options' },
-      { key: 'libelles_options_autorisees', label: 'Libellés des options' },
-      { key: 'niveau_acces', label: 'Niveau' },
-      { key: 'libelle_niveau_acces', label: 'Libellé niveau' },
     ],
   },
 };
