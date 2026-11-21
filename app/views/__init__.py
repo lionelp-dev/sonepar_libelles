@@ -6,7 +6,7 @@ from .option_label_view_set import OptionLabelViewSet
 from .op_code_label_view_set import OpCodeLabelViewSet
 from .program_label_view_set import ProgramLabelViewSet
 from .role_label_view_set import RoleLabelViewSet
-from .ses510mi_lst import ses510mi_lst
+from .ses510mi_lst import export_ses510mi_lst, ses510mi_lst
 
 __all__ = [
     "health",
@@ -15,5 +15,6 @@ __all__ = [
     "OpCodeLabelViewSet",
     "ProgramLabelViewSet",
     "RoleLabelViewSet",
+    "export_ses510mi_lst",
     "ses510mi_lst",
 ]

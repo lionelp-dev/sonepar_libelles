@@ -14,5 +14,6 @@ router.register("op-code-labels", views.OpCodeLabelViewSet, basename="op-code-la
 urlpatterns = [
     path("health/", views.health),
     path("", include(router.urls)),
+    path("ses510mi/export/", views.export_ses510mi_lst),
     path("ses510mi/", views.ses510mi_lst),
 ]

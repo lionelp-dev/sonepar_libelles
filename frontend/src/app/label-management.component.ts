@@ -44,6 +44,28 @@ export class LabelManagementComponent implements OnInit {
     return fields[this.activeKind()];
   }
 
+  protected pageTitle(): string {
+    const titles: Record<LabelKind, string> = {
+      function: 'Libellés des fonctions',
+      option: 'Libellés des options',
+      program: 'Libellés des programmes',
+      role: 'Libellés des rôles',
+      opCode: 'Libellés des codes opération',
+    };
+    return titles[this.activeKind()];
+  }
+
+  protected pageDescription(): string {
+    const descriptions: Record<LabelKind, string> = {
+      function: 'Associez un libellé aux fonctions M3 présentes dans le journal d’audit.',
+      option: 'Associez un libellé aux options de droits présentes dans le journal d’audit.',
+      program: 'Associez un libellé aux programmes M3 présents dans le journal d’audit.',
+      role: 'Associez un libellé aux rôles M3 présents dans le journal d’audit.',
+      opCode: 'Associez un libellé aux codes opération présents dans le journal d’audit.',
+    };
+    return descriptions[this.activeKind()];
+  }
+
   protected startEdit(row: LabelRecord): void {
     this.editingCode.set(row.code);
     this.draftLabel = row.libelle ?? '';

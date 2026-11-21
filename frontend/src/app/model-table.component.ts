@@ -27,6 +27,8 @@ export class ModelTableComponent implements OnInit {
   });
   protected readonly loading = signal(true);
   protected readonly error = signal(false);
+  protected readonly exporting = signal(false);
+  protected readonly exportError = signal(false);
 
   ngOnInit(): void {
     const tableName = this.route.snapshot.data['table'] as DatabaseTableName;
@@ -52,6 +54,31 @@ export class ModelTableComponent implements OnInit {
 
   protected displayValue(row: TableRecord, column: TableColumn): string | number | boolean {
     return row[column.key] ?? '—';
+  }
+
+  protected exportCsv(): void {
+    this.exporting.set(true);
+    this.exportError.set(false);
+    this.api.downloadSes510miExport().subscribe({
+      next: (response) => {
+        const url = URL.createObjectURL(response.body!);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = this.filenameFrom(response.headers.get('content-disposition'));
+        link.click();
+        URL.revokeObjectURL(url);
+        this.exporting.set(false);
+      },
+      error: () => {
+        this.exporting.set(false);
+        this.exportError.set(true);
+      },
+    });
+  }
+
+  private filenameFrom(contentDisposition: string | null): string {
+    return contentDisposition?.match(/filename="?([^";]+)"?/)?.[1]
+      ?? 'ses510mi_lst_enrichi.csv';
   }
 
   protected previousPage(): void {

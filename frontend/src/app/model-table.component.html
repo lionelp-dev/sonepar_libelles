@@ -1,8 +1,16 @@
 <section class="page-heading">
-  <p class="eyebrow">Consultation</p>
-  <h1>{{ configuration.tableName }}</h1>
-  <p>{{ configuration.description }}</p>
+  <div>
+    <h1>{{ configuration.tableName }}</h1>
+    <p>{{ configuration.description }}</p>
+  </div>
+  <button class="export-button" type="button" (click)="exportCsv()" [disabled]="exporting()">
+    {{ exporting() ? 'Préparation…' : 'Exporter en CSV' }}
+  </button>
 </section>
+
+@if (exportError()) {
+  <p class="export-error" role="alert">Impossible de générer le fichier CSV.</p>
+}
 
 @if (loading()) {
   <p class="state" role="status">Chargement des données…</p>
