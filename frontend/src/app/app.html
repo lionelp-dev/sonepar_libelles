@@ -1,7 +1,6 @@
 <div class="application-shell">
   <div class="workspace">
     <aside class="sidebar" aria-label="Navigation principale">
-      <p class="sidebar-title">Interfaces</p>
       <nav>
         <div class="nav-group">
           <button
@@ -11,18 +10,42 @@
             [attr.aria-expanded]="m3MenuOpen"
             (click)="toggleM3Menu()"
           >
-            <span>Données Infor M3</span>
+            <span>Audits Sécurité Infor M3</span>
             <span class="nav-group-chevron" aria-hidden="true">⌄</span>
           </button>
 
           @if (m3MenuOpen) {
             <div id="m3-navigation" class="subnav">
-              @for (item of navigation; track item.path) {
+              @for (item of m3Navigation; track item.path) {
                 <a [routerLink]="item.path" routerLinkActive="active">{{ item.label }}</a>
               }
             </div>
           }
         </div>
+
+        <div class="nav-group">
+          <button
+            class="nav-group-toggle"
+            type="button"
+            aria-controls="label-navigation"
+            [attr.aria-expanded]="labelMenuOpen"
+            (click)="toggleLabelMenu()"
+          >
+            <span>Gestion libellés</span>
+            <span class="nav-group-chevron" aria-hidden="true">⌄</span>
+          </button>
+
+          @if (labelMenuOpen) {
+            <div id="label-navigation" class="subnav">
+              <a routerLink="/libelles/fonctions" routerLinkActive="active">Fonctions</a>
+              <a routerLink="/libelles/programmes" routerLinkActive="active">Programmes</a>
+              <a routerLink="/libelles/roles" routerLinkActive="active">Rôles</a>
+              <a routerLink="/libelles/options" routerLinkActive="active">Options</a>
+              <a routerLink="/libelles/op-codes" routerLinkActive="active">Codes opération</a>
+            </div>
+          }
+        </div>
+
       </nav>
     </aside>
 

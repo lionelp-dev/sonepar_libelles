@@ -1,0 +1,62 @@
+<section class="page-heading">
+  <p class="eyebrow">Paramétrage</p>
+  <h1>Libellés</h1>
+  <p>Attribuez un texte aux codes réellement présents dans les données M3. Les données M3 ne sont pas modifiées.</p>
+</section>
+
+@if (loading()) {
+  <p class="state" role="status">Chargement des libellés…</p>
+} @else if (error()) {
+  <div class="state state--error" role="alert">
+    <p>Impossible de charger les libellés.</p>
+    <button class="text-button" type="button" (click)="load()">Réessayer</button>
+  </div>
+} @else if (rows().length === 0) {
+  <p class="state">Aucun code M3 disponible.</p>
+} @else {
+  <div class="table-card">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th scope="col">{{ codeField() }}</th><th scope="col">Libellé</th><th scope="col">Actions</th></tr>
+        </thead>
+        <tbody>
+          @for (row of rows(); track row.code) {
+            <tr>
+              <td>{{ row.code }}</td>
+              <td>
+                @if (editingCode() === row.code) {
+                  <div class="field-control">
+                    <input class="edit-input" type="text" [(ngModel)]="draftLabel" (input)="clearFormError()" (keyup.enter)="save(row)" />
+                    @if (formError) {
+                      <p class="field-error" role="alert">{{ formError }}</p>
+                    }
+                  </div>
+                } @else {
+                  {{ row.libelle ?? '—' }}
+                }
+              </td>
+              <td class="action-cell">
+                <div class="actions">
+                  @if (editingCode() === row.code) {
+                    <button type="button" (click)="save(row)">Enregistrer</button>
+                    <button class="secondary" type="button" (click)="cancelEdit()">Annuler</button>
+                  } @else {
+                    <button type="button" (click)="startEdit(row)">{{ row.libelle ? 'Modifier' : 'Associer' }}</button>
+                  }
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+  @if (pageCount() > 1) {
+    <nav class="pagination" aria-label="Pagination des libellés">
+      <button type="button" (click)="previousPage()" [disabled]="currentPage() === 1">Précédente</button>
+      <span>Page {{ currentPage() }} sur {{ pageCount() }}</span>
+      <button type="button" (click)="nextPage()" [disabled]="currentPage() === pageCount()">Suivante</button>
+    </nav>
+  }
+}

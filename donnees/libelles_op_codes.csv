@@ -1,0 +1,4 @@
+op_code;libelle
+021;Création d'une association utilisateur–rôle
+031;Création ou copie d'une association rôle–fonction
+032;Modification des autorisations d'une association rôle–fonction

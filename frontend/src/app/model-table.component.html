@@ -1,7 +1,7 @@
 <section class="page-heading">
   <p class="eyebrow">Consultation</p>
-  <h1>{{ definition.title }}</h1>
-  <p>{{ definition.description }}</p>
+  <h1>{{ configuration.tableName }}</h1>
+  <p>{{ configuration.description }}</p>
 </section>
 
 @if (loading()) {
@@ -19,7 +19,7 @@
       <table>
         <thead>
           <tr>
-            @for (column of definition.columns; track column.key) {
+            @for (column of configuration.columns; track column.key) {
               <th scope="col">{{ column.label }}</th>
             }
           </tr>
@@ -27,7 +27,7 @@
         <tbody>
           @for (row of displayedRows(); track $index) {
             <tr>
-              @for (column of definition.columns; track column.key) {
+              @for (column of configuration.columns; track column.key) {
                 <td>{{ displayValue(row, column) }}</td>
               }
             </tr>

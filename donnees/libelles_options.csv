@@ -1,7 +1,5 @@
-﻿code_option;libelle_option;libelle_anglais;description
-1;Créer;Create;Ajouter ou créer un enregistrement
-2;Modifier;Change;Modifier un enregistrement existant
-3;Copier;Copy;Copier un enregistrement
-4;Supprimer;Delete;Supprimer un enregistrement
-5;Consulter;Display;Afficher des données sans les modifier
-6;Imprimer;Print;Imprimer ou lancer une opération d’impression
+code_option;libelle
+1;Créer
+2;Modifier
+3;Copier
+5;Consulter

@@ -1,17 +1,16 @@
 import { Routes } from '@angular/router';
 
 import { ModelTableComponent } from './model-table.component';
+import { LabelManagementComponent } from './label-management.component';
 
 export const routes: Routes = [
-  { path: 'catalogue-fonctions', component: ModelTableComponent, data: { model: 'MNS110MI_Lst' } },
-  { path: 'utilisateurs', component: ModelTableComponent, data: { model: 'MNS150MI_LstUsers' } },
-  { path: 'roles', component: ModelTableComponent, data: { model: 'MNS405MI_Lst' } },
-  { path: 'affectations', component: ModelTableComponent, data: { model: 'MNS410MI_LstRolesByUser' } },
-  { path: 'autorisations-role', component: ModelTableComponent, data: { model: 'SES400MI_LstAuthByRole' } },
-  { path: 'autorisations-utilisateur', component: ModelTableComponent, data: { model: 'SES401_CMNPUS' } },
-  { path: 'historique-habilitations', component: ModelTableComponent, data: { model: 'SES510MI_Lst' } },
-  { path: 'fonctions', component: ModelTableComponent, data: { model: 'LibellesFonctions' } },
-  { path: 'options', component: ModelTableComponent, data: { model: 'LibellesOptions' } },
-  { path: '', pathMatch: 'full', redirectTo: 'utilisateurs' },
-  { path: '**', redirectTo: 'utilisateurs' },
+  { path: 'ses510mi', component: ModelTableComponent, data: { table: 'ses510mi_lst' } },
+  { path: 'libelles/fonctions', component: LabelManagementComponent, data: { kind: 'function' } },
+  { path: 'libelles/programmes', component: LabelManagementComponent, data: { kind: 'program' } },
+  { path: 'libelles/roles', component: LabelManagementComponent, data: { kind: 'role' } },
+  { path: 'libelles/options', component: LabelManagementComponent, data: { kind: 'option' } },
+  { path: 'libelles/op-codes', component: LabelManagementComponent, data: { kind: 'opCode' } },
+  { path: 'libelles', pathMatch: 'full', redirectTo: 'libelles/fonctions' },
+  { path: '', pathMatch: 'full', redirectTo: 'ses510mi' },
+  { path: '**', redirectTo: 'ses510mi' },
 ];

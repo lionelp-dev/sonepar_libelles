@@ -1,0 +1,16 @@
+code_programme;libelle
+MMS001;Article. Ouvrir
+MMS010;Emplacement. Ouvrir
+MMS100;Transactions de stock
+MMS200;Boîte à outils des articles
+MMS300;Inventaire physique. Exécuter
+MNS410;Rôles par utilisateur. Connecter
+OIS100;Commande client. Ouvrir
+OIS150;Livraisons
+OIS300;Recherche d’en-têtes de commande de vente
+PPS200;En-tête d’ordre d’achat
+PPS201;Lignes d’ordre d’achat
+PPS300;Réception de marchandises
+PPS310;Contrôle qualité
+PPS450;Statistiques d’achat
+SES400;Fonction. Connecter autorisation par rôle

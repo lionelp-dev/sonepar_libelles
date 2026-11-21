@@ -2,39 +2,30 @@ from django.db import models
 
 
 class SES510MI_Lst(models.Model):
-    """Une entrée du journal des modifications d'habilitations SES510."""
+    """Ligne d'audit de sécurité M3 retournée par SES510MI_Lst."""
 
-    id_evenement = models.CharField(max_length=50)
     trdt = models.DateField()
     trtm = models.TimeField()
     usiu = models.CharField(max_length=50)
     conu = models.CharField(max_length=20)
     divu = models.CharField(max_length=20)
-    prgnu = models.CharField(max_length=50)
-    modifie_par = models.CharField(max_length=50)
-    programme_origine = models.CharField(max_length=50)
-    code_operation = models.CharField(max_length=10)
-    role_modifie = models.CharField(max_length=50, blank=True)
-    fonction_modifiee = models.CharField(max_length=50, blank=True)
-    utilisateur_modifie = models.CharField(max_length=50, blank=True)
-    code_option = models.CharField(max_length=10, blank=True)
+    prgnu = models.CharField(max_length=50, db_index=True)
+    changed_by = models.CharField(max_length=50)
+    trans_program = models.CharField(max_length=50, db_index=True)
+    op_code = models.CharField(max_length=10, db_index=True)
+    changed_role = models.CharField(max_length=50, blank=True, db_index=True)
+    changed_fnc = models.CharField(max_length=50, blank=True, db_index=True)
+    changed_user = models.CharField(max_length=50, blank=True)
+    type_droit = models.CharField(max_length=50)
+    code_option = models.CharField(max_length=50, db_index=True)
     autorisee_avant = models.CharField(max_length=10)
     autorisee_apres = models.CharField(max_length=10)
-    options_de_base_modifiees = models.CharField(max_length=10, blank=True)
-    options_associees_modifiees = models.CharField(max_length=10, blank=True)
-    touches_fonction_modifiees = models.CharField(max_length=10, blank=True)
 
     class Meta:
         db_table = "ses510mi_lst"
         constraints = [
             models.UniqueConstraint(
-                fields=[
-                    "id_evenement",
-                    "code_option",
-                ],
-                name="ses510_evenement_option_unique",
+                fields=("trdt", "trtm", "usiu", "conu", "divu", "prgnu", "type_droit", "code_option"),
+                name="ses510mi_audit_unique",
             ),
         ]
-
-    def __str__(self):
-        return f"{self.id_evenement} - option {self.code_option}"

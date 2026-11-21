@@ -2,8 +2,8 @@ import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { M3DataApiService } from './m3-data-api.service';
-import { modelDefinitions, ReadOnlyModelName } from './model-definitions';
-import { ModelDefinition, ModelRecord, ModelTableColumn } from './models';
+import { tableConfigurations } from './table-configurations';
+import { DatabaseTableName, TableConfiguration, TableRecord, TableColumn } from './tables';
 
 @Component({
   selector: 'app-model-table',
@@ -14,10 +14,10 @@ export class ModelTableComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly api = inject(M3DataApiService);
 
-  protected definition: ModelDefinition = modelDefinitions.MNS150MI_LstUsers;
-  protected readonly rows = signal<ModelRecord[]>([]);
+  protected configuration: TableConfiguration = tableConfigurations.ses510mi_lst;
+  protected readonly rows = signal<TableRecord[]>([]);
   protected readonly currentPage = signal(1);
-  protected readonly pageSize = 10;
+  protected readonly pageSize = 15;
   protected readonly pageCount = computed(() =>
     Math.max(1, Math.ceil(this.rows().length / this.pageSize)),
   );
@@ -29,15 +29,15 @@ export class ModelTableComponent implements OnInit {
   protected readonly error = signal(false);
 
   ngOnInit(): void {
-    const modelName = this.route.snapshot.data['model'] as ReadOnlyModelName;
-    this.definition = modelDefinitions[modelName] ?? modelDefinitions.MNS150MI_LstUsers;
+    const tableName = this.route.snapshot.data['table'] as DatabaseTableName;
+    this.configuration = tableConfigurations[tableName] ?? tableConfigurations.ses510mi_lst;
     this.load();
   }
 
   protected load(): void {
     this.loading.set(true);
     this.error.set(false);
-    this.api.getCollection(this.definition.apiPath).subscribe({
+    this.api.getCollection(this.configuration.apiPath).subscribe({
       next: (rows) => {
         this.rows.set(rows);
         this.currentPage.set(1);
@@ -50,7 +50,7 @@ export class ModelTableComponent implements OnInit {
     });
   }
 
-  protected displayValue(row: ModelRecord, column: ModelTableColumn): string | number | boolean {
+  protected displayValue(row: TableRecord, column: TableColumn): string | number | boolean {
     return row[column.key] ?? '—';
   }
 

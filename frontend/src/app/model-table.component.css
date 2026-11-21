@@ -8,11 +8,11 @@
 }
 
 .page-heading {
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.4rem;
 }
 
 .page-heading h1 {
-  margin: 0.25rem 0 0.6rem;
+  margin: 0.1rem 0 0.35rem;
   color: #14263d;
   font-size: clamp(1.75rem, 3vw, 2.25rem);
   letter-spacing: -0.04em;
@@ -107,6 +107,7 @@ th {
 
 td {
   color: #27394e;
+  white-space: nowrap;
 }
 
 tbody tr:last-child td {

@@ -1,16 +1,19 @@
 :host {
   display: block;
-  min-height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 .application-shell {
-  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
 }
 
 .workspace {
   display: grid;
   grid-template-columns: 15.5rem minmax(0, 1fr);
-  min-height: 100vh;
+  height: 100%;
+  min-height: 0;
 }
 
 .sidebar {
@@ -107,10 +110,12 @@ main {
   flex: 1;
   min-width: 0;
   min-height: 0;
-  padding: 0 clamp(1.25rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  overflow: hidden;
+  padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 3vw, 2.5rem);
 }
 
-main > app-model-table {
+main > app-model-table,
+main > app-label-management {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -120,8 +125,17 @@ main > app-model-table {
 }
 
 @media (max-width: 760px) {
+  :host,
+  .application-shell {
+    height: auto;
+    min-height: 100dvh;
+    overflow: visible;
+  }
+
   .workspace {
     display: block;
+    height: auto;
+    min-height: 100dvh;
   }
 
   .sidebar {
@@ -164,5 +178,6 @@ main > app-model-table {
   main {
     height: auto;
     min-height: 0;
+    overflow: visible;
   }
 }

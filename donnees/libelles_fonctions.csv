@@ -1,26 +1,12 @@
-﻿code_fonction;libelle_fonction;description
-MMS001;Gestion des fiches articles;Article. Open — programme M3 associé aux fiches articles.
-PPS200;Gestion des commandes fournisseurs;Purchase Order. Open — programme M3 des commandes fournisseurs.
-OIS100;Gestion des commandes clients;Customer Order. Open — programme M3 des commandes clients.
-MMS010;Gestion des emplacements de stockage;Stock Location. Open — gestion des emplacements de stockage.
-MMS100;Suivi des mouvements de stock;Stock Transaction — consultation et traitement des mouvements de stock.
-MMS200;Recherche et consultation des articles;Item Toolbox — recherche et consultation des articles.
-MMS300;Suivi des inventaires de stock;Stocktake — suivi des en-têtes d’inventaire.
-PPS201;Détail des lignes de commandes fournisseurs;Purchase Order Lines — détail des lignes de commandes d’achat.
-PPS300;Gestion des réceptions de marchandises;Goods Receipt — traitement des réceptions fournisseurs.
-PPS310;Contrôle qualité des marchandises reçues;Quality Inspection — contrôles sur les réceptions d’achat.
-PPS450;Consultation des statistiques d'achat;Purchase Statistics — analyse des achats.
-OIS101;Détail des lignes de commandes clients;Customer Order Lines — lignes associées aux commandes clients.
-OIS150;Gestion des livraisons clients;Deliveries — opérations de livraison des commandes clients.
-OIS300;Recherche des commandes clients;Customer Order Toolbox — recherche des en-têtes de commandes clients.
-OIS350;Recherche des factures clients;Invoice Header Search — consultation des factures.
-GLS100;Saisie des écritures comptables;General Ledger — saisie des écritures de journal.
-GLS200;Consultation des numéros de pièces comptables;Voucher Number — consultation des pièces comptables.
-GLS210;Consultation du détail des écritures comptables;General Ledger Details — consultation des écritures comptables.
-MNS110;Configuration des fonctions M3;Function. Open — paramétrage des fonctions.
-MNS405;Définition et gestion des rôles;Role. Open — définition des rôles de sécurité.
-MNS410;Attribution des rôles aux utilisateurs;User. Connect Roles — affectation des rôles aux utilisateurs.
-SES400;Gestion des droits par rôle et fonction;Authorization by Role — droits associés à chaque rôle et fonction.
-SES401;Consultation des droits par utilisateur;User Authorization — consultation des autorisations résultantes.
-SES510;Historique des modifications d'habilitations;Security Audit. Open — consultation des changements d’habilitations.
-SES511;Édition des rapports d'audit des habilitations;Security Audit Report — édition de rapports d’audit.
+code_fonction;libelle
+MMS001;Gestion des fiches articles
+MMS010;Gestion des emplacements de stockage
+MMS100;Gestion des transactions de stock
+MMS200;Recherche et consultation des articles
+OIS100;Gestion des commandes clients
+OIS300;Recherche des commandes clients
+PPS200;Gestion des commandes fournisseurs
+PPS201;Gestion des lignes de commandes fournisseurs
+PPS300;Réception des marchandises commandées
+PPS310;Contrôle qualité à la réception
+PPS450;Consultation des statistiques d’achat
