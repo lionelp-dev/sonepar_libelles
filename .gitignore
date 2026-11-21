@@ -6,8 +6,8 @@ __pycache__/
 *.py[cod]
 
 # Base SQLite locale
-database/*.sqlite3
-database/*.sqlite3-*
+apps/api/labels/database/*.sqlite3
+apps/api/labels/database/*.sqlite3-*
 
 # Variables d'environnement locales
 .env

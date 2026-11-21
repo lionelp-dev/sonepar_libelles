@@ -1,4 +1,4 @@
-﻿user_id;nom_complet;role_id;nom_role;code_fonction;libelle_fonction;societe;division;statut;options_autorisees;libelles_options_autorisees;niveau_acces;libelle_niveau_acces
+user_id;nom_complet;role_id;nom_role;code_fonction;libelle_fonction;societe;division;statut;options_autorisees;libelles_options_autorisees;niveau_acces;libelle_niveau_acces
 AMOREL;Alice Morel;COMM01;Commercial;MMS001;Gestion des articles;100;AAA;20;5;Consulter;1;Consultation uniquement
 AMOREL;Alice Morel;COMM01;Commercial;OIS100;Commandes clients;100;AAA;20;1,2,5;Créer, Modifier, Consulter;2;Modification autorisée
 AMOREL;Alice Morel;COMM01;Commercial;PPS200;Commandes fournisseurs;100;AAA;10;;Aucune option active;0;Aucun droit actif accordé par ce rôle
